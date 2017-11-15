@@ -1,0 +1,98 @@
+package Controller;
+
+import globals.Profile;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import org.json.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/addprofile")
+public class AddRequestHandler extends HttpServlet {
+
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Add info to database
+		Profile profile = new Profile();
+		profile.name = request.getParameter("name");
+		profile.email = request.getParameter("email");
+		profile.phone = request.getParameter("phone");
+		profile.gender = request.getParameter("gender");
+		profile.city = request.getParameter("city");
+		profile.country = request.getParameter("country");
+		profile.fb = request.getParameter("fb");
+		profile.pic = request.getParameter("pic");
+		profile.school = request.getParameter("school");
+		profile.coaching = request.getParameter("coaching");
+		profile.college = request.getParameter("college");
+		profile.branch = request.getParameter("branch");
+		profile.profession = request.getParameter("profession");
+		profile.board = request.getParameter("board");
+		profile.mains = request.getParameter("mains");
+		profile.advance = request.getParameter("advance");
+		profile.pmt = request.getParameter("pmt");
+		if (request.getParameter("percentage") == null) {
+			profile.percentage = "0";
+		} else {
+			profile.percentage = request.getParameter("percentage");
+		}
+		profile.other = request.getParameter("other");
+
+		// Send response
+		int id = sql.ProfileManager.addProfileToDatabase(profile);
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("id", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		out.print(obj);
+	}
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// Add info to database
+		Profile profile = new Profile();
+		profile.name = request.getParameter("name");
+		profile.email = request.getParameter("email");
+		profile.phone = request.getParameter("phone");
+		profile.gender = request.getParameter("gender");
+		profile.city = request.getParameter("city");
+		profile.country = request.getParameter("country");
+		profile.fb = request.getParameter("fb");
+		profile.pic = request.getParameter("pic");
+		profile.school = request.getParameter("school");
+		profile.coaching = request.getParameter("coaching");
+		profile.college = request.getParameter("college");
+		profile.branch = request.getParameter("branch");
+		profile.profession = request.getParameter("profession");
+		profile.board = request.getParameter("board");
+		profile.mains = request.getParameter("mains");
+		profile.advance = request.getParameter("advance");
+		profile.pmt = request.getParameter("pmt");
+		if (request.getParameter("percentage") == null) {
+			profile.percentage = "0";
+		} else {
+			profile.percentage = request.getParameter("percentage");
+		}
+		profile.other = request.getParameter("other");
+
+		// Send response
+		int id = sql.ProfileManager.addProfileToDatabase(profile);
+		response.setContentType("application/json");
+		PrintWriter out = response.getWriter();
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("id", id);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		out.print(obj);
+	}
+}

@@ -1,0 +1,35 @@
+package Controller;
+
+import globals.Profile;
+
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import org.json.JSONObject;
+
+import sql.ProfileManager;
+
+import com.google.gson.Gson;
+
+public class SearchByCity extends HttpServlet{
+	response.setContentType("application/json");
+	PrintWriter out = response.getWriter();
+	ArrayList<Profile> profiles = new ArrayList<Profile>();
+	for (Profile p : ProfileManager.getAllProfiles()) {
+		profiles.add(new Profile(p));
+	}
+	if (profiles.size() != 0) {
+		Gson gson = new Gson();
+		String json = gson.toJson(profiles);
+		out.print(json);
+	} else {
+		JSONObject obj = new JSONObject();
+		try {
+			obj.put("Message", "Empty");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		out.print(obj);
+	}
+}
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<script>
+function myFunction() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var gender = document.getElementById("gender").value;
+    var city = document.getElementById("city").value;
+    var country = document.getElementById("country").value;
+    var school = document.getElementById("school").value;
+    var coaching = document.getElementById("coaching").value;
+    var board = document.getElementById("board").value;
+    var percentage = document.getElementById("percentage").value;
+    var college = document.getElementById("college").value;
+    var branch = document.getElementById("branch").value;
+    var fb = document.getElementById("fb").value;
+    var pic = document.getElementById("pic").value;
+    var mains = document.getElementById("mains").value;
+    var advance = document.getElementById("advance").value;
+    var pmt = document.getElementById("pmt").value;
+    var other = document.getElementById("other").value;
+    var profession = document.getElementById("profession").value;
+
+    var dataString = 'name=' + name + '&email=' + email + '&phone=' + phone
+            + '&gender=' + gender + '&city=' + city + '&country=' + country
+            + '&school=' + school + '&coaching=' + coaching + '&board=' + board
+            + '&percentage=' + percentage + '&college=' + college + '&branch='
+            + branch + '&fb=' + fb + '&pic=' + pic + '&mains=' + mains
+            + '&advance=' + advance + '&pmt=' + pmt + '&other=' + other
+            + '&profession=' + profession;
+    if (name == '' || email == '' || phone == '' || gender == '' || city == ''
+            || country == '' || school == '' || coaching == '' || board == ''
+            || percentage == '' || college == '' || branch == '' || fb == ''
+            || pic == '' || mains == '' || advance == '' || pmt == ''
+            || other == '' || profession == '') {
+        alert("Please Fill All Fields");
+    } else {
+        $
+                .ajax({
+                    type : "POST",
+                    url : "http://default-environment-39w5eks4p7.elasticbeanstalk.com/addprofile",
+                    data : dataString,
+                    cache : false,
+                    success : function(html) {
+                        alert(html);
+                    }
+                });
+    }
+    return false;
+}
+
+</script>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Add New Client</title>
+</head>
+<body>
+	<form onsubmit="myFunction()">
+		<fieldset>
+			<legend>Client Information:</legend>
+			Name:<br> <input type="text" name="name"> <br>
+			Email:<br> <input type="text" name="email"> <br>
+			Phone:<br> <input type="text" name="phone"> <br>
+			Gender:<br> <input type="text" name="gender"> <br>
+			School:<br> <input type="text" name="school"> <br>
+			College:<br> <input type="text" name="college"> <br>
+			Branch:<br> <input type="text" name="branch"> <br>
+			Coaching:<br> <input type="text" name="coaching"> <br>
+			Board:<br> <input type="text" name="board"> <br>
+			City:<br> <input type="text" name="city"> <br>
+			Country:<br> <input type="text" name="country"> <br>
+			Profession:<br> <input type="text" name="profession"> <br>
+			Percentage:<br> <input type="text" name="percentage"> <br>
+			JEE Mains:<br> <input type="text" name="mains"> <br>
+			JEE Advance/IELTS:<br> <input type="text" name="advance"><br> 
+			PMT Score:<br> <input type="text" name="pmt"><br>
+			OTHER(INTERN):<br> <input type="text" name="other"><br>
+			Profile Pic Link:<br> <input type="text" name="pic"><br>
+			Fb Link:<br> <input type="text" name="fb"> <br>
+			<input type="submit" value="Add">
+		</fieldset>
+	</form>
+</body>
+</html>

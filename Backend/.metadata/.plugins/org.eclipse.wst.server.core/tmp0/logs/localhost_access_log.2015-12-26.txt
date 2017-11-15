@@ -1,0 +1,9 @@
+127.0.0.1 - - [26/Dec/2015:15:18:35 +0530] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:18:36 +0530] "GET /startup/ HTTP/1.1" 200 276
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:19:06 +0530] "GET /startup/searchengineering HTTP/1.1" 500 1580
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:21:24 +0530] "GET /startup/search HTTP/1.1" 200 2571
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:21:33 +0530] "GET /startup/searchengineering HTTP/1.1" 200 2571
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:21:36 +0530] "GET /startup/WEB-INF/classes/sql/ProfileManager.java HTTP/1.1" 404 949
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:21:38 +0530] "GET /startup/searchengineering HTTP/1.1" 200 2571
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:21:38 +0530] "GET /startup/searchengineering HTTP/1.1" 200 2571
+0:0:0:0:0:0:0:1 - - [26/Dec/2015:15:21:50 +0530] "GET /startup/searchengineering HTTP/1.1" 200 2571
